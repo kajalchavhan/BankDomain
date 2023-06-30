@@ -15,8 +15,9 @@ public class LogInPage {
 	private By contactCust=By.xpath("//a[contains(text(),'contact')]");
 	private By sucText=By.xpath("//p[contains(text(),'A Customer Care Representative will be contacting you.')]");
 	private By CusName=By.xpath("//input[@id='name']");
-	private By CusEmail=By.xpath("//input[@id='name']");
-	private By CustMsg=By.xpath("//input[@id='message']");
+	private By CusEmail=By.xpath("//input[@id='email']");
+	private By CusphNum=By.xpath("//input[@id='phone']");
+	private By CustMsg=By.xpath("//textarea[@id='message']");
 	private By SendCare=By.xpath("//input[@value='Send to Customer Care']");
 	
 	public LogInPage(WebDriver driver2) {
@@ -28,6 +29,9 @@ public class LogInPage {
 	}
 	public WebElement entreCustMsg() {
 		return driver.findElement(CustMsg);
+	}
+	public WebElement entreCusphNum() {
+		return driver.findElement(CusphNum);
 	}
 	public WebElement entreCusEmail() {
 		return driver.findElement(CusEmail);

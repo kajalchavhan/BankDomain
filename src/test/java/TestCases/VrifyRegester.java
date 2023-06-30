@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 
 import PageObjectModel.CommonMethod;
 import PageObjectModel.RegesterPageObject;
-import Resources.BaseClass;
+import Resources.baseClass;
 import Resources.Constant;
 import Resources.RanGen;
  
    
-   public class VrifyRegester extends BaseClass {
+   public class VrifyRegester extends baseClass {
 	   public static String username;
 		
 	public RegesterPageObject REG;

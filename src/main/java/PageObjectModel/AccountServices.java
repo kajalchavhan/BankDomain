@@ -14,18 +14,37 @@ public class AccountServices {
 		private By BillPay=By.xpath("//a[contains(text(),'Bill Pay')]");
 		private By FindTransactions=By.xpath("//a[contains(text(),'Find Transactions')]");
 		private By UpdateCon=By.xpath("//a[contains(text(),'Update Contact Info')]");
+	
 		private By ReqLoan=By.xpath("//a[contains(text(),'Request Loan')]");
 		private By Amount=By.xpath("//input[@id='amount']");
 		private By Transfer=By.xpath("//input[@value='Transfer']");
 		private By TransferComp=By.xpath("//h1[@class='title']");
 		private By FindTransac=By.xpath("//h1[contains(text(),'Find Transactions')]");
 		private By newAcc=By.xpath("//a[contains(text(),'Open New Account')]");
+		private By newAccText=By.xpath("//h1[contains(text(),'Open New Account')]");
+		private By AccType=By.xpath("//select[@id='type']");
+		private By opNewAcc=By.xpath("//input[@value='Open New Account']");
+		
+		private By availAmo=By.xpath("//th[contains(text(),'Available Amount')]");
 		
 		public AccountServices(WebDriver driver2) {
 			// TODO Auto-generated constructor stub
 			this.driver=driver2;
 		}
 		
+		
+		public WebElement availAmoText() {
+			return driver.findElement(availAmo);
+		}
+		public WebElement clickopNewAcc() {
+			return driver.findElement(opNewAcc);
+		}
+		public WebElement selectAccType() {
+			return driver.findElement(AccType);
+		}
+		public WebElement getNewAccText() {
+			return driver.findElement(newAccText);
+		}
 		public WebElement newAcc() {
 			return driver.findElement(newAcc);
 		}

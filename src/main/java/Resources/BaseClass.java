@@ -1,10 +1,16 @@
 package Resources;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.hpsf.Date;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,7 +20,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
-public class BaseClass {
+
+
+public class baseClass {
 
 	public static WebDriver driver;
     public Properties prop;
@@ -55,9 +63,35 @@ public class BaseClass {
 	}
 	@AfterMethod
 	public void quitBrowser() throws IOException {
-	//driver.quit();
+	driver.quit();
 	}
+	@BeforeTest
+	 public void ExtentReport() {
+	  extentManager.setup();
+	 }
+
+	 
+	 @AfterTest
+	 public void endReport() {
+	  extentManager.endReport();
+	 }
+	//To take the screenshot and store in one folder-
+	public static String screenShot(WebDriver driver, String filename) {
+		
+		 String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		  TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+		  File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
+		  
+		String destination = System.getProperty("user.dir") + "\\ScreenShot\\" + filename + "_" + dateName + ".png";
+		  File finalDestination = new File(destination);
+		  try {
+		   FileUtils.copyFile(source, finalDestination);
+		  } catch (Exception e) {
+		   e.getMessage();
+		  }
+		  return destination;
 	
+	}
 
 }
 	 

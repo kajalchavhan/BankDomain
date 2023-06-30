@@ -4,33 +4,35 @@ import org.testng.annotations.Test;
 
 import PageObjectModel.CommonMethod;
 import PageObjectModel.LogInPage;
-import Resources.BaseClass;
+import Resources.baseClass;
 import Resources.Constant;
 
-public class VerifyLogIn extends BaseClass{
+public class VerifyLogIn extends baseClass{
 	
 	public LogInPage LOG;
 	
-	@Test(priority=1)
+	@Test(priority=2)
    public void Login() {
 	   LOG=new LogInPage(driver);
 	   LOG.entreUser().sendKeys(Constant.Username);
 	   LOG.entrePass().sendKeys(Constant.Password);
-	   
+	   LOG.clickSubmit().click();
    }
 	
-/*	@Test(priority=2)
+    @Test(priority=1)
 	public void Customer() {
-		
-     LOG.clickSubmit().click();
+     LOG=new LogInPage(driver);	
+     LOG.clickcontactCust().click();
 	 LOG.entreCusName().sendKeys(Constant.firstName);
 	 LOG.entreCusEmail().sendKeys(Constant.CustEmail);
-	 LOG.clickcontactCust().click();
+	 LOG.entreCusphNum().sendKeys(Constant.PhoneNum);
+	 LOG.entreCustMsg().sendKeys(Constant.CustMsg);
+	 LOG.clickSendCare().click();
 		   
 	 String actsuccontactText=LOG.succontactText().getText();
-	 String ExpsuccontactText=Constant.SuccesReg;
+	 String ExpsuccontactText=Constant.ConactSuc;
 	 CommonMethod.handleAssersions(actsuccontactText,ExpsuccontactText, "customer care contact success text did not match");
 	}
-	*/
+	
 	
 }
