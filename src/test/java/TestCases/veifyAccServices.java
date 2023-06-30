@@ -24,7 +24,7 @@ public class veifyAccServices extends baseClass {
 	    LOG.clickSubmit().click();
 	    
 	  	
-		 AS=new AccountServices(driver);
+		AS=new AccountServices(driver);
 		 
 		//new Account verification---
 		 AS.newAcc().click();

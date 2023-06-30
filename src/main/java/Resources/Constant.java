@@ -16,7 +16,7 @@ public class Constant {
 	public static String Password="sanavi@123";
 	public static String Confirm="sanavi@123";
 	public static String SuccesReg="Your account was created successfully. You are now logged in.";
-	public static String Ammount="200";
+	public static String Ammount="20";
 	public static String TransferComText="Transfer Funds";
 	public static String billpaySer="Bill Payment Service";
 	public static String findTranscText="Find Transactions";
